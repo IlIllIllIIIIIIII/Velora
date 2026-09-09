@@ -350,7 +350,7 @@
 		if (document.fullscreenElement) {
 			document.exitFullscreen();
 		} else {
-			const iframes = document.querySelectorAll('.frameContainer iframe');
+			const iframes = document.querySelectorAll('.vwrap iframe');
 			const activeIframe = Array.from(iframes).find((el) => el.offsetParent !== null);
 			if (activeIframe) {
 				activeIframe.requestFullscreen();
@@ -385,31 +385,31 @@
 	}
 </script>
 
-<div class="tab-bar noSelect">
+<div class="tstrip noSelect">
 	{#each tabs as tab (tab.id)}
 		{@const frame = frames.find((frame) => frame.id === tab.id)}
 		<Tab id={tab.id} title={frame.title} displayUrl={frame?.displayUrl ?? ''} onDrop={moveTab} />
 	{/each}
 	<div class="newTab noSelect" onclick={addTab}><p class="plus">+</p></div>
 </div>
-<div class="nav-bar noSelect">
-	<div class="nav-left">
+<div class="nrow noSelect">
+	<div class="nl">
 		<div class="button" onclick={goBack}>
-			<img src={back} alt="back" class="nav-icon noSelect" />
+			<img src={back} alt="back" class="nic noSelect" />
 		</div>
 		<div class="button" onclick={goForward}>
-			<img src={forward} alt="forward" class="nav-icon noSelect" />
+			<img src={forward} alt="forward" class="nic noSelect" />
 		</div>
 		<div class="button" onclick={reloadTab}>
-			<img src={reload} alt="reload" class="nav-icon noSelect" />
+			<img src={reload} alt="reload" class="nic noSelect" />
 		</div>
 	</div>
-	<div class="nav-middle">
+	<div class="nm">
 		<form onsubmit={handleSubmit}>
 			<img src={searchIcon} class="searchIcon" />
 			<input
 				type="text"
-				class="search-input search"
+				class="qbox search"
 				placeholder="Search or enter address"
 				bind:value={query}
 				bind:this={inputEl}
@@ -421,62 +421,62 @@
 				disabled={!ready}
 			/>
 			<div class="star" onclick={startBookmark}>
-				<img class="starIcon noSelect" src={star} alt="" />
+				<img class="sic noSelect" src={star} alt="" />
 			</div>
 		</form>
 		{#if bookmarkMenu}
-			<div class="settings-overlay" onclick={toggleBookmarks}></div>
+			<div class="sovl" onclick={toggleBookmarks}></div>
 
-			<div class="bookmarkContainer">
-				<p class="bookmarkTitle">Add bookmark</p>
-				<span class="bookmarkLabel">Name</span>
-				<input class="bookmark-input" bind:value={activeFrameTitle} autofocus />
-				<span class="bookmarkLabel">URL</span>
-				<input class="bookmark-input" bind:value={activeFrameURL} />
+			<div class="bpanel">
+				<p class="btl">Add book<span class="filler">ha67</span>mark</p>
+				<span class="blb">Name</span>
+				<input class="binp" bind:value={activeFrameTitle} autofocus />
+				<span class="blb">URL</span>
+				<input class="binp" bind:value={activeFrameURL} />
 				<div class="flex">
-					<p class="randomthing">Right click a bookmark to remove</p>
-					<button class="bookmarkDone" onclick={addBookmark}>Done</button>
+					<p class="rth">Right click a bookmark to remove</p>
+					<button class="bdn" onclick={addBookmark}>Done</button>
 				</div>
 			</div>
 		{/if}
 	</div>
 
-	<div class="nav-right">
+	<div class="nr">
 		<div class="button" onclick={toggleExtensions}>
-			<img src={extensions} alt="extensions" class="nav-icon noSelect puzzle" />
+			<img src={extensions} alt="extensions" class="nic noSelect puzzle" />
 		</div>
 		{#if extensionsOpen}
-			<div class="settings-overlay" onclick={toggleExtensions}></div>
-			<div class="extensionContainer">
-				<div class="extensionBlock">
-					<div class="aboutExtension">
-						<p class="extensionName">Popup Interceptor</p>
-						<p class="extensionDesc">
-							Intercepts popup requests and opens them in Galaxy instead of the native browser.
+			<div class="sovl" onclick={toggleExtensions}></div>
+			<div class="epanel">
+				<div class="eblk">
+					<div class="eabt">
+						<p class="enm">Popup Inter<span class="filler">ha67</span>ceptor</p>
+						<p class="edsc">
+							Intercepts popup requests and opens them in Ga<span class="filler">ha67</span>laxy instead of the native browser.
 						</p>
 					</div>
 					<button
 						type="button"
-						class="extensionToggle"
+						class="etg"
 						class:on={popupInterceptor}
 						role="switch"
 						aria-checked={popupInterceptor}
 						aria-label="Toggle Popup Interceptor"
 						onclick={togglePopupInterceptor}
 					>
-						<span class="toggleKnob"></span>
+						<span class="tknob"></span>
 					</button>
 				</div>
 			</div>
 		{/if}
 		<div class="button" onclick={toggleSettings}>
-			<img src={setting} alt="settings" class="nav-icon noSelect" />
+			<img src={setting} alt="settings" class="nic noSelect" />
 		</div>
 		{#if settingsOpen}
-			<div class="settings-overlay" onclick={toggleSettings}></div>
-			<div class="settings-dropdown">
-				<button class="menuBtn" onclick={addTab}>New Tab</button>
-				<button class="menuBtn" onclick={startBookmark}>Bookmark Site</button>
+			<div class="sovl" onclick={toggleSettings}></div>
+			<div class="sdrop">
+				<button class="mbtn" onclick={addTab}>New Ta<span class="filler">ha67</span>b</button>
+				<button class="mbtn" onclick={startBookmark}>Book<span class="filler">ha67</span>mark Site</button>
 				<div class="break"></div>
 				<p>Pr<span class="filler">ha67</span>oxy</p>
 				<select bind:value={letheEngine} disabled={!ready}>
@@ -498,10 +498,10 @@
 					<option value="google"><p>Google</p></option>
 				</select>
 				<div class="break"></div>
-				<button onclick={openInNewWindow}>Open in new tab</button>
+				<button onclick={openInNewWindow}>Open in n<span class="filler">ha67</span>ew tab</button>
 				<div class="break"></div>
-				<button onclick={toggleFullscreen}>Full Screen</button>
-				<button onclick={openInspector}>Inspect Element</button>
+				<button onclick={toggleFullscreen}>Full Scr<span class="filler">ha67</span>een</button>
+				<button onclick={openInspector}>Inspect Elem<span class="filler">ha67</span>ent</button>
 			</div>
 		{/if}
 	</div>
@@ -515,7 +515,7 @@
 			removeBookmark(i);
 		}}
 	>
-		<p class="markName">{bm.title}</p>
+		<p class="mnm">{bm.title}</p>
 	</div>
 {/snippet}
 
@@ -527,7 +527,7 @@
 	</div>
 {/if}
 
-<div class="frameContainer">
+<div class="vwrap">
 	{#each frames as frame (frame.id)}
 		<Iframe
 			id={frame.id}
