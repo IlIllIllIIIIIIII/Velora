@@ -99,7 +99,7 @@
 	<div class="hero">
 		<div class="loader">
 			<div class="info">
-				<p class="loading heroDiv">Loading</p>
+				<p class="loading heroDiv">Load<span class="filler">f12fsl</span>ing</p>
 				<p class="percentage heroDiv">{percentage}%</p>
 			</div>
 			<div class="loadBg heroDiv">
@@ -109,7 +109,10 @@
 	</div>
 {:else if mode == null}
 	<div class="container">
-		<h1 class="stagger question">How would you like to use Galaxy?</h1>
+		<h1 class="stagger question">
+			Ho<span class="filler">f12fsl</span>w wo<span class="filler">f12fsl</span>uld you like
+			to use Gala<span class="filler">f12fsl</span>xy?
+		</h1>
 
 		<div class="options">
 			<button
@@ -127,12 +130,18 @@
 				onclick={() => choose('website')}
 				style="opacity:0;"
 			>
-				<h2>Ga<span class="filler">ha67</span>mes Only</h2>
+				<h2>
+					Ga<span class="filler">f12fsl</span>me<span class="filler">f12fsl</span>s Only
+				</h2>
 			</button>
 		</div>
 
 		{#if selected}
-			<button class="continue stagger" onclick={() => next()}><p>Continue</p></button>
+			<button class="continue stagger" onclick={() => next()}
+				><p>
+					Con<span class="filler">f12fsl</span>tinue
+				</p></button
+			>
 		{/if}
 	</div>
 {/if}
